@@ -1,0 +1,24 @@
+{
+  "name": "shopping",
+  "version": "1.0.0",
+  "description": "its good",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "BusariAnees"
+  },
+  "keywords": [
+    "titan-web"
+  ],
+  "author": "Anees",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
