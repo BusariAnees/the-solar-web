@@ -6,26 +6,35 @@
 <body>
 <%- include('../includes/header') %>
 <main>
+<section class="signup-section">
+    <div class="signup-image">
+        <img src="/images/illustration.png" alt="email illustration">
+    </div>
+  <div class="signup-form">
     <h1>Sign up</h1>
     <form action="" method="">
         <p>
-        <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+        <input type="text" id="firstname" name="firstname" placeholder="First Name"  class="form-specifics"  required>
         </p>
         <p>
-        <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+        <input type="text" id="lastname" name="lastname" placeholder="Last Name"  class="form-specifics" required>
        </p>
        <p>
-        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="email" id="email" name="email" placeholder="Email"  class="form-specifics" required>
        </p>
        <p>
-        <input type="password" id="password" name="password" placeholder="Password"  minlength="6" required>
+        <input type="password" id="password" name="password" placeholder="Password"  minlength="6"  class="form-specifics" required>
        </p>
        <p>
-        <input type="password" id="Confimpassword" name="Confirmpassword" placeholder="Confirm Password"  minlength="6" required>
+        <input type="password" id="Confimpassword" name="Confirmpassword" placeholder="Confirm Password"  minlength="6" class="form-specifics"  required>
        </p>
        <p>
-        <button class="btn">  Sign up</button>
+        <button class="btn-signup">  Sign up</button>
        </p>
-       <p id="switch-form">Already have an account?<a href="/login">Sign in</a></p>
+       <p id="switch-form">Already have an account?<a href="/login">  Sign in</a></p>
     </form>
+  </div>
+
+</section>
+   
 </main>
