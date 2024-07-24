@@ -3,7 +3,7 @@ const db = require("../data/database.js");
 const mongodb = require("mongodb");
 
 class Auth {
-  constructor(firstname, lastname, email, password) {
+  constructor( email, password,firstname, lastname,) {
     this.firstname = firstname;
     this.lastname = lastname;
     this.email = email;
@@ -11,45 +11,39 @@ class Auth {
   }
 
   async fetchEmail() {
-    const existingUser = db.getDb
+    const existingUser = await db.getDb()
       .collection("users")
       .findOne({ email: this.email });
     return existingUser;
   }
 
-  async existsAlready (){
-    const existingUser = await this.fetchEmail();
-    if(existingUser){
-        return true;
-    } else {
-        return false;
-    }
-  }
+
+
+
 
   async signup() {
     try{
       const harshedpassword = await bcrypt.hash(this.password, 12)
-    }
-      catch(error){
-
-    }
-    
-
-    const user = {
+       const user = {
       firstname: this.firstname,
       lastname: this.lastname,
       email: this.email,
       password: harshedpassword,
     };
 
-    try{
 
       const result = await db.getDb().collection("users").insertOne(user);
-    } catch(error){
+         return result;
+    }
+      catch(error){
+   console.log(error)
+    }
+  }
 
-    };
-    return result;
+  async hasMatchingPassword (harshedpassword){
+    return bcrypt.compare(this.password, harshedpassword)
   }
 }
+
 
 module.exports = Auth;

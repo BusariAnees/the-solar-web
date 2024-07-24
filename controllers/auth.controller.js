@@ -1,6 +1,7 @@
 const db = require("../data/database.js");
 const validationsession = require("../util/validation-session");
 const validation = require("../util/validation.js");
+const authUtil = require("../util/authentication.js");
 const Auth = require("../models/auth");
 
 
@@ -24,10 +25,39 @@ async function signup(req, res) {
   const enteredpassword = userData.password;
   const confirmedpassword = userData.Confirmpassword;
 
-  const newUser = new Auth(firstname, lastname, enteredemail, enteredpassword);
+  const newUser = new Auth( enteredemail, enteredpassword,firstname, lastname,);
  await newUser.signup();
 
   res.redirect('/login');
+}
+
+async function login(req, res){
+const userData = req.body;
+const enteredemail = userData.email;
+const enteredpassword = userData.password;
+
+const newUser = new Auth(enteredemail,enteredpassword);
+const userAuth = await newUser.fetchEmail();
+
+
+
+
+ if(!userAuth){
+  res.redirect('/login');
+  return;
+ } 
+
+ const userPassword = await newUser.hasMatchingPassword(userAuth.password);
+
+ if(!userPassword){
+  res.redirect('/login');
+  return;
+ } 
+
+authUtil.createUserSession(req, userAuth, function() {
+  res.redirect('/');
+})
+
 }
 
 module.exports = {
@@ -35,4 +65,5 @@ module.exports = {
   getLogin: getLogin,
   signup: signup,
   get401:get401,
+  login:login
 };

@@ -12,10 +12,15 @@
             Cart
           </div> 
             <img src="\images\cart-shopping-solid.svg" alt="">
-            <!-- <span class="ml-half the-circle-icon">0</span> -->
         </button>
       </div>
-      <!-- <img src="\images\cart2.png" alt=""> -->
     </nav>
+    <ul>
+      <% if(locals.isAuth) {%>
+      <li>
+        <button>Logout</button>
+      </li>
+      <% }%>  
+      </ul>
   </section>
 </header>
