@@ -4,8 +4,8 @@ function createSessionStore (session){
     const mongoDbstore = mongodbStore(session);
 
     const sessionStore = new mongoDbstore({
-        uri: 'mongodb://127.0.0.1:27017',
-        databaseName: 'solar-blog',
+        uri:  'mongodb://localhost:27017',
+        databaseName: 'solar-shop',
         collection: 'session',
     });
     return sessionStore
