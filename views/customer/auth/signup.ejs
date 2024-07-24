@@ -1,10 +1,10 @@
-<%- include('../includes/head', { pageTitle: 'Signup'}) %>
+<%- include('../../shared/includes/head', { pageTitle: 'Signup'}) %>
 <link rel="stylesheet" href="/styles/forms.css">
 <link rel="stylesheet" href="/styles/auth.css">
 
 </head>
 <body>
-<%- include('../includes/header') %>
+<%- include('../../shared/includes/header') %>
 <main>
 <section class="signup-section">
     <div class="signup-image">
@@ -12,7 +12,9 @@
     </div>
   <div class="signup-form">
     <h1>Sign up</h1>
+
     <form action="/signup" method="POST">
+      <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
         <p>
         <input type="text" id="firstname" name="firstname" placeholder="First Name"  class="form-specifics"  required>
         </p>
@@ -38,3 +40,5 @@
 </section>
    
 </main>
+
+<%- include('../../shared/includes/footer') %>

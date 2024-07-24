@@ -27,7 +27,13 @@ class Auth {
   }
 
   async signup() {
-    const harshedpassword = await bcrypt.hash(this.password, 12);
+    try{
+      const harshedpassword = await bcrypt.hash(this.password, 12)
+    }
+      catch(error){
+
+    }
+    
 
     const user = {
       firstname: this.firstname,
@@ -35,7 +41,13 @@ class Auth {
       email: this.email,
       password: harshedpassword,
     };
-    const result = await db.getDb().collection("users").insertOne(user);
+
+    try{
+
+      const result = await db.getDb().collection("users").insertOne(user);
+    } catch(error){
+
+    };
     return result;
   }
 }
