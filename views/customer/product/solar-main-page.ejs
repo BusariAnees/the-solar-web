@@ -1,12 +1,36 @@
-<%- include('../../shared/includes/head', { pageTitle: 'Main page'}) %>
-<link rel="stylesheet" href="/styles/forms.css">
-<link rel="stylesheet" href="/styles/auth.css">
-
+<%- include('../../shared/includes/head', { pageTitle: 'main-page'}) %>
 </head>
-<body>
-<%- include('../../shared/includes/header') %>
+<body class="main-page">
+    <%-include('../../shared/includes/header') %>
+          <!-- <ul>
+            <% if(locals.isAuth) {%>
+            <li>
+              <button>Logout</button>
+            </li>
+            <% }%>  
+            </ul> -->
+        </section>
+      </header>
 <main>
-
+<!-- <p class="main-paragraph">
+  Generate your own power with the power of the sun,<br>
+         save with solar overtime
+</p>
+<p class="secondmain-paragraph">
+  Generate your own clean energy from the sun for free with solar. Add Powerwall to store your energy for use anytime you need it.  <br>
+  save on Energy, power your home.
+</p> -->
+<ul class="main-ul">
+  <p id="arman">The Arman panels</p>
+  <p>
+    Solar Panels the <br>
+    Energy source of the future <br>
+    is here
+  </p>
+  <button>Shop All Equipments</button>
+</ul>
 </main>
+
+
 
 <%- include('../../shared/includes/footer') %>

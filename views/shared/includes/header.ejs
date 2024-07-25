@@ -1,11 +1,18 @@
 <link rel="stylesheet" href="/styles/header.css" />
+
 <header>
   <section class="header">
     <div>
       <a href="/"><img src="\images\A3.png" alt="" /></a>
     </div>
-    <nav id="user-img">
-     <img src="\images\user-regular.svg" alt="user" />  
+    <div class="header-pack">
+      <a href="">Shop</a>
+      <a href="">Energy</a>
+      <a href="">About us</a>
+      <a href="">Rewards</a>
+    </div>
+    <nav id="user-img"><a href="/signup"> <img src="\images\user-regular.svg" alt="user" />  </a>
+    
       <div>
         <button aria-label="Cart" id="solar-cart-btn">
           <div>
@@ -14,13 +21,14 @@
             <img src="\images\cart-shopping-solid.svg" alt="">
         </button>
       </div>
+    
     </nav>
-    <ul>
+    <!-- <ul>
       <% if(locals.isAuth) {%>
       <li>
         <button>Logout</button>
       </li>
       <% }%>  
-      </ul>
+      </ul> -->
   </section>
 </header>
