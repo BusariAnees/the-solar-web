@@ -60,10 +60,17 @@ authUtil.createUserSession(req, userAuth, function() {
 
 }
 
+function logout(req, res){
+req.session.isAdmin = false;
+req.session.uid = null;
+res.redirect('/');
+}
+
 module.exports = {
   getSignup: getSignup,
   getLogin: getLogin,
   signup: signup,
   get401:get401,
-  login:login
+  login:login,
+  logout:logout,
 };
