@@ -12,23 +12,25 @@
     </div>
   <div class="signup-form">
     <h1>Sign up</h1>
-
+<% if(inputData.hasError) { %> 
+ <p> <%= inputData.message %></p>
+<% } %>
     <form action="/signup" method="POST">
       <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
         <p>
-        <input type="text" id="firstname" name="firstname" placeholder="First Name"  class="form-specifics"  required>
+        <input type="text" id="firstname" name="firstname" placeholder="First Name"  class="form-specifics" value="<%= inputData.firstname %>" required>
         </p>
         <p>
-        <input type="text" id="lastname" name="lastname" placeholder="Last Name"  class="form-specifics" required>
+        <input type="text" id="lastname" name="lastname" placeholder="Last Name"  class="form-specifics" value="<%= inputData.lastname %>" required>
        </p>
        <p>
-        <input type="email" id="email" name="email" placeholder="Email"  class="form-specifics" required>
+        <input type="email" id="email" name="email" placeholder="Email"  class="form-specifics" value="<%= inputData.email %>"required>
        </p>
        <p>
-        <input type="password" id="password" name="password" placeholder="Password"  minlength="6"  class="form-specifics" required>
+        <input type="password" id="password" name="password" placeholder="Password"  minlength="6"  class="form-specifics" value="<%= inputData.password %>" required>
        </p>
        <p>
-        <input type="password" id="Confimpassword" name="Confirmpassword" placeholder="Confirm Password"  minlength="6" class="form-specifics"  required>
+        <input type="password" id="Confimpassword" name="Confirmpassword" placeholder="Confirm Password"  minlength="6" class="form-specifics"  value="<%= inputData.confirmedpassword %>" required>
        </p>
        <p>
         <button class="btn-signup">  Sign up</button>

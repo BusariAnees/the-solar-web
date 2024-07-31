@@ -1,23 +1,40 @@
 const db = require("../data/database.js");
 const validationsession = require("../util/validation-session");
-const validation = require("../util/validation.js");
+const userDetialsAreValid = require("../util/validation.js");
 const authUtil = require("../util/authentication.js");
 const Auth = require("../models/auth");
 
-
-function get401(req,res){
-  res.status(401).render('401');
+function get401(req, res) {
+  res.status(401).render("401");
 }
 
 function getSignup(req, res) {
-  res.render("customer/auth/signup");
+  sessionErrorData = validationsession.sessionErrorData(req, {
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmedpassword: "",
+  });
+
+  res.render("customer/auth/signup", {
+    inputData: sessionErrorData,
+  });
 }
 
 function getLogin(req, res) {
-  res.render('customer/auth/login')
+  let sessionErrorData = validationsession.sessionErrorData(req, {
+    email: "",
+    password: "",
+    confirmedpassword: "",
+  });
+
+  res.render("customer/auth/login", {
+    inputData: sessionErrorData,
+  });
 }
 
-async function signup(req, res) {
+async function signup(req, res, next) {
   const userData = req.body;
   const firstname = userData.firstname;
   const lastname = userData.lastname;
@@ -25,52 +42,105 @@ async function signup(req, res) {
   const enteredpassword = userData.password;
   const confirmedpassword = userData.Confirmpassword;
 
-  const newUser = new Auth( enteredemail, enteredpassword,firstname, lastname,);
- await newUser.signup();
+  if (
+    !userDetialsAreValid(
+      firstname,
+      lastname,
+      enteredemail,
+      enteredpassword,
+      confirmedpassword
+    )
+  ) {
+    validationsession.flashErrorsToSession(
+      req,
+      {
+        message: "Invalid input - please check your data.",
+        firstname: firstname,
+        lastname: lastname,
+        email: enteredemail,
+        password: enteredpassword,
+        confirmedpassword: confirmedpassword,
+      },
+      function () {
+        res.redirect("/signup");
+      }
+    );
+    return;
+  }
 
-  res.redirect('/login');
+  const newUser = new Auth(enteredemail, enteredpassword, firstname, lastname);
+  
+  
+  try {
+    const existsAlready =  await newUser.existsAlready ();
+
+    if(existsAlready){
+    validationsession.flashErrorsToSession(
+      req,
+      {
+        message: "User Already exist",
+        firstname: firstname,
+        lastname: lastname,
+        email: enteredemail,
+        password: enteredpassword,
+        confirmedpassword: confirmedpassword,
+      },
+      function () {
+        res.redirect("/signup");
+      }
+    );
+    return;
+  }
+    
+    await newUser.signup();
+  } catch (error) {
+    return next(error);
+  }
+
+  res.redirect("/login");
 }
 
-async function login(req, res){
-const userData = req.body;
-const enteredemail = userData.email;
-const enteredpassword = userData.password;
+async function login(req, res, next) {
+  const userData = req.body;
+  const enteredemail = userData.email;
+  const enteredpassword = userData.password;
 
-const newUser = new Auth(enteredemail,enteredpassword);
-const userAuth = await newUser.fetchEmail();
+  const newUser = new Auth(enteredemail, enteredpassword);
+  let userAuth;
+  try {
+    userAuth = await newUser.fetchEmail();
+  } catch (error) {
+    return next(error);
+  }
 
+  if (!userAuth) {
+    res.redirect("/login");
+    return;
+  }
 
+  const userPassword = await newUser.hasMatchingPassword(userAuth.password);
 
+  if (!userPassword) {
+    res.redirect("/login");
+    return;
+  }
 
- if(!userAuth){
-  res.redirect('/login');
-  return;
- } 
-
- const userPassword = await newUser.hasMatchingPassword(userAuth.password);
-
- if(!userPassword){
-  res.redirect('/login');
-  return;
- } 
-
-authUtil.createUserSession(req, userAuth, function() {
-  res.redirect('/');
-})
-
+  authUtil.createUserSession(req, userAuth, function () {
+    res.redirect("/");
+  });
 }
 
-function logout(req, res){
-req.session.isAdmin = false;
-req.session.uid = null;
-res.redirect('/');
+function logout(req, res) {
+  req.session.isAdmin = false;
+  req.session.uid = null;
+  res.redirect("/");
 }
 
 module.exports = {
   getSignup: getSignup,
   getLogin: getLogin,
   signup: signup,
-  get401:get401,
-  login:login,
-  logout:logout,
+  get401: get401,
+  login: login,
+  logout: logout,
 };

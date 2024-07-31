@@ -18,11 +18,17 @@ class Auth {
   }
 
 
-
+async existsAlready(){
+  const existingUser = await this.fetchEmail();
+  if(existingUser){
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
   async signup() {
-    try{
       const harshedpassword = await bcrypt.hash(this.password, 12)
        const user = {
       firstname: this.firstname,
@@ -34,10 +40,6 @@ class Auth {
 
       const result = await db.getDb().collection("users").insertOne(user);
          return result;
-    }
-      catch(error){
-   console.log(error)
-    }
   }
 
   async hasMatchingPassword (harshedpassword){

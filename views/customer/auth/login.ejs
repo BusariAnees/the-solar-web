@@ -12,14 +12,16 @@
     </div>
   <div class="signup-form">
     <h1>Sign in</h1>
-
+    <% if(inputData.hasError) { %> 
+      <p> <%= inputData.message %></p>
+     <% } %>
     <form action="/login" method="POST">
       <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
        <p>
-        <input type="email" id="email" name="email" placeholder="Email"  class="form-specifics" required>
+        <input type="email" id="email" name="email" placeholder="Email"  class="form-specifics" value="<%= inputData.email %>" required>
        </p>
        <p>
-        <input type="password" id="password" name="password" placeholder="Password"  minlength="6"  class="form-specifics" required>
+        <input type="password" id="password" name="password" placeholder="Password"  minlength="6"  class="form-specifics" value="<%= inputData.password %>"required>
        </p>
        <p>
         <button class="btn-signup">  Sign in</button>
