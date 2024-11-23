@@ -11,6 +11,8 @@
       <a href="">About us</a>
       <a href="">Rewards</a>
     </div>
+
+    <% if(!locals.isAuth) {%>
     <nav id="user-img"><a href="/signup"> <img src="\images\user-regular.svg" alt="user" />  </a>
     
       <div>
@@ -18,11 +20,25 @@
           <div>
             Cart
           </div> 
-            <img src="\images\cart-shopping-solid.svg" alt="">
+            <img src="\images\cart-shopping-solid.svg" alt="cart">
+        </button>
+      </div>
+   <% } %>
+    </nav>
+    <% if(locals.isAuth) {%>
+    <nav id="user-img" class="logged-userImg"><a href="/login"> <img src="\images\user-regular.svg" alt="user" />  </a>
+    
+      <div>
+        <button aria-label="Cart" id="solar-cart-btn">
+          <div>
+            Cart
+          </div> 
+            <img src="\images\cart-shopping-solid.svg" alt="cart">
         </button>
       </div>
     
     </nav>
+  <% } %>
     <!-- <ul>
       <% if(locals.isAuth) {%>
       <li>
