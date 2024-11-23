@@ -1,0 +1,23 @@
+<%- include('../shared/includes/head', { pageTitle: 'loggedIn-profile'}) %>
+<link rel="stylesheet" href="/styles/loggedIn-profile.css">
+
+</head>
+<body>
+<%- include('../shared/includes/header') %>
+<main>
+<ul class="profile">
+    <article>
+        <div class="AB">AB</div>
+        <li id="profile-list">
+            <div class="name">Anees Busari</div>
+            <div class="flex">
+                <i class="fa-regular fa-clock"></i> 
+                <div class="time"><%= currentTime %></div>
+            </div>
+        </li>
+    </article> 
+</ul>
+   
+</main>
+
+<%- include('../shared/includes/footer') %>

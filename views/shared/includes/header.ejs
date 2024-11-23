@@ -13,7 +13,7 @@
     </div>
 
     <% if(!locals.isAuth) {%>
-    <nav id="user-img"><a href="/signup"> <img src="\images\user-regular.svg" alt="user" />  </a>
+    <nav id="user-img"><a href="/login"> <img src="\images\user-regular.svg" alt="user" />  </a>
     
       <div>
         <button aria-label="Cart" id="solar-cart-btn">
@@ -26,7 +26,7 @@
    <% } %>
     </nav>
     <% if(locals.isAuth) {%>
-    <nav id="user-img" class="logged-userImg"><a href="/login"> <img src="\images\user-regular.svg" alt="user" />  </a>
+    <nav id="user-img" class="logged-userImg"><a href="/loggedIn-profile"> <img src="\images\user-regular.svg" alt="user" />  </a>
     
       <div>
         <button aria-label="Cart" id="solar-cart-btn">

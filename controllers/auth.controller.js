@@ -9,7 +9,7 @@ function get401(req, res) {
 }
 
 function getSignup(req, res) {
-  sessionErrorData = validationsession.sessionErrorData(req, {
+ let sessionErrorData = validationsession.sessionErrorData(req, {
     firstname: "",
     lastname: "",
     email: "",
