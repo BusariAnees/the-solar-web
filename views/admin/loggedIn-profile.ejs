@@ -17,7 +17,15 @@
         </li>
     </article> 
 </ul>
-   
+<ul>
+    <% if(locals.isAuth) {%>
+    <li><form action="/logout" method="POST">
+      <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
+      <button>Logout</button>
+    </form>  
+    </li>
+    <% }%>  
+    </ul>
 </main>
 
 <%- include('../shared/includes/footer') %>
