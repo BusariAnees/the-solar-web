@@ -16,16 +16,26 @@
             </div>
         </li>
     </article> 
+    <div class="profile-class">
+        <span class="span1">
+            <a href="/myprofile"><i class="fa-regular fa-user"></i>My Profile
+            </a>     
+        </span>
+        <span class="span2">
+            <a href="/delivery"><i class="fa-solid fa-location-dot ispecial"></i>Delivery Address
+            </a>
+        </span>
+       
+        
+    </div>
+    <!-- <% if(locals.isAuth) {%>
+        <li><form action="/logout" method="POST">
+          <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
+          <button>Logout</button>
+        </form>  
+        </li>
+        <% }%>   -->
 </ul>
-<ul>
-    <% if(locals.isAuth) {%>
-    <li><form action="/logout" method="POST">
-      <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
-      <button>Logout</button>
-    </form>  
-    </li>
-    <% }%>  
-    </ul>
 </main>
 
 <%- include('../shared/includes/footer') %>
