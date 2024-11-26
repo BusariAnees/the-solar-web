@@ -1,10 +1,11 @@
 <%- include('../shared/includes/head', { pageTitle: 'loggedIn-profile'}) %>
 <link rel="stylesheet" href="/styles/loggedIn-profile.css">
+<link rel="stylesheet" href="/styles/loggedIn-description.css">
 
 </head>
 <body>
 <%- include('../shared/includes/header') %>
-<main>
+<main class="profile-main">
 <ul class="profile">
     <article>
         <div class="AB">AB</div>
@@ -24,17 +25,51 @@
         <span class="span2">
             <a href="/delivery"><i class="fa-solid fa-location-dot ispecial"></i>Delivery Address
             </a>
+        </span>  
+    </div>
+    <div class="profile-class profile-class2">
+        <span class="span3">
+            <a href="/Myorders"><i class="fa-solid fa-bag-shopping"></i>My Orders
+            </a>
         </span>
-       
+    </div>
+    <div class="profile-class profile-class2">
+        <span class="span4">
+            <a href="/myprofile"><i class="fa-regular fa-pen-to-square"></i></i>Manage Subscription
+            </a>     
+        </span>
         
     </div>
-    <!-- <% if(locals.isAuth) {%>
+    <div class="profile-class profile-class3">
+        <span class="span5">
+            <a href="/ChangePassword"><i class="fa-solid fa-lock"></i>Change Password
+            </a>     
+        </span>
+    </div>
+    <div class="profile-class profile-class4">
+    
+  <% if(locals.isAuth) {%>
         <li><form action="/logout" method="POST">
           <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
-          <button>Logout</button>
+          <span>
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <button class="logout">Logout</button>
+          </span>
         </form>  
         </li>
-        <% }%>   -->
+        <% }%>  
+    </div>
+</ul>
+<ul class="profile-description" >
+    <span class="profile-text">Welcome Back! Anees</span>
+    <li class="profile-description-li">
+        <form action="/updateprofile" method="POST">
+            <div>
+                <label for="firstname">First Name</label>
+                <input type="text"id="firstname" name="FirstName" placeholder="Anees" disabled="disabled" >
+            </div>
+        </form>
+    </li>
 </ul>
 </main>
 
