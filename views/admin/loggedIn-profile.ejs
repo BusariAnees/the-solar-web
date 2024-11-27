@@ -6,70 +6,103 @@
 <body>
 <%- include('../shared/includes/header') %>
 <main class="profile-main">
-<ul class="profile">
-    <article>
-        <div class="AB">AB</div>
-        <li id="profile-list">
-            <div class="name">Anees Busari</div>
-            <div class="flex">
-                <i class="fa-regular fa-clock"></i> 
+        <ul class="profile">
+          <article>
+            <div class="AB">AB</div>
+            <li id="profile-list">
+              <div class="name">Anees Busari</div>
+              <div class="flex">
+                <i class="fa-regular fa-clock"></i>
                 <div class="time"><%= currentTime %></div>
-            </div>
-        </li>
-    </article> 
-    <div class="profile-class">
-        <span class="span1">
-            <a href="/myprofile"><i class="fa-regular fa-user"></i>My Profile
-            </a>     
-        </span>
-        <span class="span2">
-            <a href="/delivery"><i class="fa-solid fa-location-dot ispecial"></i>Delivery Address
-            </a>
-        </span>  
-    </div>
-    <div class="profile-class profile-class2">
-        <span class="span3">
-            <a href="/Myorders"><i class="fa-solid fa-bag-shopping"></i>My Orders
-            </a>
-        </span>
-    </div>
-    <div class="profile-class profile-class2">
-        <span class="span4">
-            <a href="/myprofile"><i class="fa-regular fa-pen-to-square"></i></i>Manage Subscription
-            </a>     
-        </span>
-        
-    </div>
-    <div class="profile-class profile-class3">
-        <span class="span5">
-            <a href="/ChangePassword"><i class="fa-solid fa-lock"></i>Change Password
-            </a>     
-        </span>
-    </div>
-    <div class="profile-class profile-class4">
-    
-  <% if(locals.isAuth) {%>
-        <li><form action="/logout" method="POST">
-          <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
-          <span>
-            <i class="fa-solid fa-right-from-bracket"></i>
-            <button class="logout">Logout</button>
-          </span>
-        </form>  
-        </li>
-        <% }%>  
-    </div>
+              </div>
+            </li>
+          </article>
+          <div class="profile-class">
+            <nav>
+                <a href="/myprofile"><i class="fa-regular fa-user"></i> My Profile</a>
+                <a class="second-a"  href="/delivery"><i class="fa-solid fa-location-dot"></i> Delivery Address</a>
+              </div>
+            </nav>
+          <div class="profile-class">
+            <a href="/Myorders"><i class="fa-solid fa-bag-shopping"></i> My Orders</a>
+          </div>
+          <div class="profile-class">
+            <a href="/myprofile"><i class="fa-regular fa-pen-to-square"></i> Manage Subscription</a>
+          </div>
+          <div class="profile-class profile-class4">
+            <nav>
+                <a href="/ChangePassword"><i class="fa-solid fa-lock"></i> Change Password</a>
+                <% if(locals.isAuth) { %>
+                         <form action="/logout" method="POST" class="second-a">
+                           <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
+                           <i class="fa-solid fa-right-from-bracket"></i>
+                           <button class="logout">Logout</button>
+                         </form>
+                       <% } %>
+            </nav>  
+          </div>
+        </ul>
+   
 </ul>
 <ul class="profile-description" >
+   
     <span class="profile-text">Welcome Back! Anees</span>
     <li class="profile-description-li">
+        <div>
         <form action="/updateprofile" method="POST">
-            <div>
-                <label for="firstname">First Name</label>
-                <input type="text"id="firstname" name="FirstName" placeholder="Anees" disabled="disabled" >
-            </div>
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text"id="first-name" name="firstname" placeholder="Anees" disabled="disabled" >
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text"id="last-name" name="lastname" placeholder="Busari" disabled="disabled" >
+                   
+                </div>
+                <div class="form-group">
+                    <label  for="E-mail">Email</label>
+                    <input type="text"id="E-mail" name="email" placeholder="ayomideanees2003@gmail.com" disabled="disabled" >
+                </div>
+                <div class="form-group">
+                    <label for="contact-name">Contact Number</label>
+                    <input type="text"id="contact-name" name="contactname" placeholder="Contact Number" disabled="disabled" >
+                </div>
+                <ul>  
+                    <div class="form-group birthdate">
+                    <label >Birthdate</label>
+                    <div>
+                        <input id="day" type="text" placeholder="DD" maxlength="2" disabled="disabled">
+                        <input id="month" type="text" placeholder="MM" maxlength="2" disabled="disabled">
+                        <input id="years" type="text" placeholder="YYYY" maxlength="4" disabled="disabled">
+                    </div>
+
+                </div>
+                <div class="form-group gender">
+                    <label id="gender">Gender</label>
+                    <div class="gender-spec">
+                      <label class="custom-radio">
+                        <input type="radio" name="gender" value="male" disabled="disabled">
+                        <span class="radio-label">Male</span> 
+                      </label>
+                      <label class="custom-radio">
+                        <input type="radio" name="gender" value="male" disabled="disabled">
+                        <span class="radio-label">Female</span> 
+                      </label>
+                      <label class="custom-radio">
+                        <input type="radio" name="gender" value="male" disabled="disabled">
+                        <span class="radio-label">Other</span> 
+                      </label>
+                </div>
+
+            </ul>     
         </form>
+    </div>
+    <div>
+        <i class="fa-regular fa-pen-to-square" id="profile-edit"></i>
+    </div>
     </li>
+   
+    
 </ul>
 </main>
 
