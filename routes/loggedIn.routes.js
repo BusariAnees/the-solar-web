@@ -13,7 +13,7 @@ router.get('/loggedIn-profile', function(req, res) {
 
    const formattedTime = `${hours}:${minutes}:${seconds} ${period}` ;
 
-    res.render('admin/loggedIn-profile',
+    res.render('customer/auth/loggedIn-profile',
     {currentTime: `${formattedTime}`});
 });
 

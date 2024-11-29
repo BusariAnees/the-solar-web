@@ -10,12 +10,14 @@
     <nav id="user-img"><a href="/login"> <img src="\images\user-regular.svg" alt="user" />  </a>
     
       <div>
+        <% if(!local.isAdmin) {%>
         <button aria-label="Cart" id="solar-cart-btn">
           <div>
             Cart
           </div> 
             <img src="\images\cart-shopping-solid.svg" alt="cart">
         </button>
+        <% } %>
       </div>
    <% } %>
     </nav>
@@ -23,19 +25,21 @@
     <nav id="user-img" class="logged-userImg"><a href="/loggedIn-profile"> <img src="\images\user-regular.svg" alt="user" />  </a>
     
       <div>
+        <% if(!locals.isAdmin) {%>
         <button aria-label="Cart" id="solar-cart-btn">
           <div>
             Cart
           </div> 
             <img src="\images\cart-shopping-solid.svg" alt="cart">
         </button>
+        <% } %>
       </div>
       <% } %>
       </nav>
  
       <% if (locals.isAdmin) { %>
-       <!-- <li><a href="/admin/products"> Manage Products</a></li>
-       <li><a href="/admin/orders"> Manage Orders</a></li> -->
+       <li><a href="/admin/products"> Manage Products</a></li>
+       <li><a href="/admin/orders"> Manage Orders</a></li>
     
       <% } %>
  
