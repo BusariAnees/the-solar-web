@@ -5,40 +5,20 @@
     <div>
       <a href="/"><img src="\images\A3.png" alt="" /></a>
     </div>
-    <div class="header-pack">
-      <a href="">Shop</a>
-      <a href="">Energy</a>
-      <a href="">About us</a>
-      <a href="">Rewards</a>
-    </div>
+  
+    <%- include('nav-items') %>
+  
 
-    <% if(!locals.isAuth) {%>
-    <nav id="user-img"><a href="/login"> <img src="\images\user-regular.svg" alt="user" />  </a>
-    
-      <div>
-        <button aria-label="Cart" id="solar-cart-btn">
-          <div>
-            Cart
-          </div> 
-            <img src="\images\cart-shopping-solid.svg" alt="cart">
-        </button>
-      </div>
-   <% } %>
-    </nav>
-    <% if(locals.isAuth) {%>
-    <nav id="user-img" class="logged-userImg"><a href="/loggedIn-profile"> <img src="\images\user-regular.svg" alt="user" />  </a>
-    
-      <div>
-        <button aria-label="Cart" id="solar-cart-btn">
-          <div>
-            Cart
-          </div> 
-            <img src="\images\cart-shopping-solid.svg" alt="cart">
-        </button>
-      </div>
-    
-    </nav>
-  <% } %>
- 
+   <!-- <button id="mobile-menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+   </button> -->
   </section>
 </header>
+
+<!-- <aside id="mobile-menu">
+  <nav>
+     include('nav-items') 
+  </nav>
+</aside> -->
