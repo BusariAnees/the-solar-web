@@ -10,7 +10,8 @@ const sessionConfig = require('./config/session');
 const db = require("./data/database");
 const addCSRFTokenMiddleware = require('./middlewares/csrf-token-middleware');
 const errorHandlermiddleware = require('./middlewares/error-handler');
-const checkAuthStatusMiddleare = require('./middlewares/check-auth');
+const checkAuthStatusMiddleware = require('./middlewares/check-auth');
+const protectRoutesMiddleware = require('./middlewares/protect-routes');
 const productsRoutes = require('./routes/products.routes');
 const baseRoutes = require('./routes/base.routes');
 const loggedin = require('./routes/loggedIn.routes');
@@ -30,12 +31,13 @@ app.use(session(sessionConfig()));
 app.use(csrf());
 
 app.use(addCSRFTokenMiddleware);
-app.use(checkAuthStatusMiddleare);
+app.use(checkAuthStatusMiddleware);
 
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use(productsRoutes);
 app.use(loggedin);
+app.use(protectRoutesMiddleware);
 app.use('/admin', adminRoutes);   /*only routes with admin will make it in here*/
 
 app.use(errorHandlermiddleware);
