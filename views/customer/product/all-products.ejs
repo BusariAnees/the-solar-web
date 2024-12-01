@@ -4,10 +4,12 @@
 <body>
     <main>
         <h1>All Products</h1>
-        <% for (const product of products) { %>
-        <li>
-            <%- include('../../shared/includes/product-item', {product: product})  %>
-        </li>
-        <% } %>
+        <ul>
+            <% for (const product of products) { %>
+                <li>
+                    <%- include('../../shared/includes/product-item', {product: product})  %>
+                </li>
+                <% } %>
+        </ul>
     </main>
     <%-include('../../shared/includes/footer') %>
