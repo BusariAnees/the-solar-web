@@ -1,5 +1,9 @@
 const Product = require('../models/product-model');
 
+function getCart(req, res) {
+    res.render('customer/cart/cart')
+}
+
 async function addCartItem(req, res) {
     let product;
     try {
@@ -17,10 +21,11 @@ cart.addItem(product);
 
  res.status(201).json({
     message: 'Cart updated!',
-    newTotalItems: cart.items.length
+    newTotalItems: cart.totalQuantity
  });
 }
 
 module.exports = {
-    addCartItem: addCartItem
+    addCartItem: addCartItem,
+    getCart: getCart,
 }

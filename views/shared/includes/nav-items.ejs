@@ -11,12 +11,15 @@
     
       <div>
         <% if(!locals.isAdmin) {%>
+       <a href="/cart">
         <button aria-label="Cart" id="solar-cart-btn">
           <div>
             Cart
           </div> 
-            <img src="\images\cart-shopping-solid.svg" alt="cart">
+            <!-- <img src="\images\cart-shopping-solid.svg" alt="cart"> -->
+            <span class="badge"><%= locals.cart.totalQuantity %></span>
         </button>
+       </a>
         <% } %>
       </div>
    <% } %>
@@ -26,12 +29,16 @@
     
       <div>
         <% if(!locals.isAdmin) {%>
-        <button aria-label="Cart" id="solar-cart-btn">
-          <div>
-            Cart
-          </div> 
-            <img src="\images\cart-shopping-solid.svg" alt="cart">
-        </button>
+          <a href="/cart">
+            <button aria-label="Cart" id="solar-cart-btn">
+              <div>
+                Cart
+              </div> 
+                <!-- <img src="\images\cart-shopping-solid.svg" alt="cart"> -->
+                <span class="badge"><%= locals.cart.totalQuantity %></span>
+            </button>
+          </a>
+       
         <% } %>
       </div>
       <% } %>

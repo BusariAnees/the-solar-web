@@ -1,6 +1,9 @@
-<%- include('../../shared/includes/head', { pageTitle: 'new products'}) %>
-</head>
+<%- include('../../shared/includes/head', { pageTitle: product.title}) %>
 
+
+<script src="/script/cart-management.js" defer></script>
+</head>
+<%-include('../../shared/includes/header') %>
 <body>
     <main id="product-details">
        <header>
@@ -8,7 +11,7 @@
         <div id="product-info">
             <h1><%= product.title %></h1>
             <p><%= product.price %></p>
-            <button> Add to Cart</button>
+            <button id="cartQuantity"  data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>" > Add to Cart</button>
         </div>
        </header>
 
