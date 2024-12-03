@@ -35,11 +35,11 @@ class Cart {
                 const cartItem = {...item};
                 const quantityChange = newQuantity - item.quantity;
                cartItem.quantity = newQuantity;
-                cartItem.totalPrice = newQuantity * product.price;
+                cartItem.totalPrice = newQuantity * item.product.price;
                 this.items[i] = cartItem;
 
                 this.totalQuantity = this.totalQuantity + quantityChange;
-                this.totalPrice += quantityChange * product.price;
+                this.totalPrice += quantityChange * item.product.price;
                 return {pdateItemPrice:cartItem.totalPrice };
             } else if (item.product.id === productID.id  && newQuantity <= 0) {
                 this.items.splice(i, 1);
