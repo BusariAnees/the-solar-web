@@ -18,6 +18,7 @@ const baseRoutes = require('./routes/base.routes');
 const loggedin = require('./routes/loggedIn.routes');
 const adminRoutes = require('./routes/admin.routes');
 const cartRoutes = require('./routes/cart.routes');
+const ordersRoutes = require('./routes/orders.routes')
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use(csrf());
 
 app.use(cartMiddlewaare);
 
+
 app.use(addCSRFTokenMiddleware);
 app.use(checkAuthStatusMiddleware);
 
@@ -43,6 +45,7 @@ app.use(productsRoutes);
 app.use(loggedin);
 app.use('/cart', cartRoutes);
 app.use(protectRoutesMiddleware);
+app.use('/orders', ordersRoutes);
 app.use('/admin', adminRoutes);   /*only routes with admin will make it in here*/
 
 app.use(errorHandlermiddleware);

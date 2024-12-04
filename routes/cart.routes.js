@@ -9,7 +9,7 @@ router.get('/', cartController.getCart)
 
 router.post('/items', cartController.addCartItem);  // /cart/items
 
-router.post('/items', cartController.updateCartItem);
+router.patch('/items', cartController.updateCartItem);
 
 
 module.exports = router;
