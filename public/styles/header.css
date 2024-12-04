@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2.2rem;
+}
+
+#user-img {
+    display: flex;
+}
+
+#user-img img {
+    padding: 0.45rem;
+    background: rgb(218 159 60);
+    height: 2rem;
+    border: 1px solid rgb(218 159 60);
+    border-radius: 16px;
+}
+
+#solar-cart-btn{
+    font-weight: 350;
+    font-family: 'Fraunces';
+    border-radius: 12px;
+    width: 5rem;
+    padding: 0.3rem;
+    background-color: rgb(218 159 60);
+    border: 1px solid rgb(218 159 60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:7px ;
+}
+#solar-cart-btn img {
+    padding: 0;
+    height: 1.2rem;
+    margin-left: 2.5px;
+}
+
+.ml-half {
+    margin-left: 0.5rem;
+}
+
+.the-circle-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 20px;
+    border: 1px solid;
+}
+

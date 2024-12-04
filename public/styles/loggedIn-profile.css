@@ -1,0 +1,111 @@
+.profile-main{
+    display: flex;
+}
+
+.profile {
+    list-style: none;
+    margin: 3rem 0 0 5rem;
+    padding: 0;
+    background-color: rgb(218 159 60);
+    width: 17rem;
+    height: 25rem;
+    border-radius: 30px;
+}
+
+
+article {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    border-radius: 30px;
+    height: 6rem;
+    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+article .AB {
+    background-color: #ffffff8f;
+    margin-left: 1rem;
+    height: 4rem;
+    width: 4rem;
+    padding-top: 1rem;
+    border-radius: 35px;
+    font-size: 1.4rem;
+}
+
+#profile-list {
+    padding-top: 0.6rem;
+    margin-right: 3.6rem;
+    font-size: 1.25rem;
+    font-family: math;
+}
+article .time {
+    padding-top: 0.2rem;
+    font-size: 0.8rem;
+}
+
+.flex {
+    justify-content: space-around;
+    display: flex;
+    margin-top: 0.2rem;
+    margin-right: 1rem;
+}
+
+.flex i {
+    margin-right:0.5rem;
+}
+.profile-class{
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+     border-bottom: 2px solid #00000033; 
+     margin-top: 0.5rem;
+   
+}
+
+
+.profile-class a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(38, 36, 36);
+}
+
+
+.profile-class i {
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+   
+}
+
+.second-a {
+    margin-top: 1rem;
+}
+
+.profile-class4{
+    border-bottom: 0px;
+}
+
+.profile-class form {
+    display: flex;
+    align-items: center;
+}
+.logout {
+    margin-left: 0;
+    padding: 0;
+    background-color:transparent;
+    border: none;
+    font-family: inherit;
+    text-align: center;
+    color: black;
+    font-size: inherit;
+}
+
+
+.profile-class4 button:hover{
+    color: rgb(0, 0, 0);
+    font-size: 1.1rem;
+}
+

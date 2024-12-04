@@ -1,0 +1,16 @@
+.error-500 img {
+    height: 17rem;
+}
+
+.btn{
+    background-color: rgb(218 159 60);
+    width: 15rem;
+    height: 2.2rem;
+    border-radius: 6.5px;
+    border: 1px solid transparent;
+    font-family: 'fraunces';
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem;
+    color: black;
+}

@@ -1,0 +1,139 @@
+.profile-description{
+    margin-top: 3.5rem;
+}
+
+.profile-text {
+    font-size: 1.9rem;
+}
+
+.profile-description-li{
+    display: flex;
+    list-style: none;
+    margin: 1.4rem 0 0 5rem;
+    padding: 0;
+    background-color: rgb(218 159 60);
+    width: 48rem;
+    height: 19.5rem;
+    border-radius: 12px;
+}
+
+.profile-description-li form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0px 20px; 
+    margin: auto;
+    border-radius: 6.5px;
+   padding: 0rem 1rem;
+    font-family: 'inherit';
+    font-size: 0.9rem;
+    width: 100%;
+    text-align: start;
+}
+
+.profile-description-li div{
+    width: 100%;
+    margin-top: 0.7rem;
+}
+
+.form.group{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-description input {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    height: 2.1rem;
+    width: 20rem;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    background-color: #ffffff8f;
+    margin-top: 0.4rem;
+}
+
+input::placeholder {
+    color: black;
+}
+
+#contact-name::placeholder {
+    color: rgb(84, 84, 84)
+}
+
+.birthdate label {
+    display: block;
+}
+
+.birthdate div{
+    text-align: start;
+    display: inline;
+    width:20rem;
+}
+
+
+  #day {
+    width: 5rem;
+    margin-right: 5px;
+  }
+  #month{
+    width: 5rem;
+    margin-right: 5px;
+  }
+
+  #years {
+    width: 8.8rem;
+    margin-right: 0;
+  }
+
+  .gender label {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 0.7rem;
+    cursor: pointer;
+  }
+
+
+  
+  .custom-radio input[type="radio"] {
+    display: none;
+  }
+  
+  .custom-radio .radio-label::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: transparent;
+    border-radius: 50%;
+    background-color: #ffffff8f;
+    transition: background-color 0.3s,;
+  }
+  
+  .custom-radio .radio-label {
+    font-size: 16px;
+    color: #333;
+    padding-right: 1.5rem;
+  }
+  
+  .custom-radio input[type="radio"]:checked + .radio-label::before {
+    background-color: #221a038f; 
+    border-color: #0e0a018f;
+  }
+  
+  .custom-radio input[type="radio"]:hover + .radio-label::before {
+    background-color: #78663a8f; /* Hover background color */
+  }
+  #gender{
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .gender-spec{
+    display: inline;
+  }
+
+  #profile-edit {
+    margin-top: 0.7rem;
+    font-size: 1.2rem;
+    width: 2rem;
+  }

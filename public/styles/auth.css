@@ -1,0 +1,71 @@
+main {
+    height: 80%;
+    font-family: 'fraunces';
+    text-align: center;
+    font-weight: 200;
+}
+
+.signup-section {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+.signup-image {
+    width: 50%;
+    height: 100%;
+    margin-top: 5rem;
+}
+
+.signup-image img {
+    width: 75%;
+    margin-top: 2rem;
+}
+
+.signup-form {
+margin-top: 5rem;
+}
+
+
+h1 {
+    font-family:'Fraunces';
+    font-weight: 400;
+    color: rgb(255,250,244);
+    color: rgb(7, 7, 7);
+    text-align: center;
+}
+
+.form-specifics {
+    border-radius: 6.5px;
+    background-color: transparent;
+    border: 1px solid rgb(218 159 60);
+    width: 24rem;
+    height: 2.2rem;
+    padding: 0.5rem 0.8rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+.form-specifics::placeholder{
+    /* color:rgb(255,250,244); */
+    color:rgb(8, 7, 7);
+}
+
+.btn-signup {
+    background-color: rgb(218 159 60);
+    width: 24rem;
+    height: 2.2rem;
+    border-radius: 6.5px;
+    border: 1px solid transparent;
+    font-family: 'fraunces';
+}
+
+
+#switch-form {
+       font-size: 0.8rem;
+       
+}
+
+#switch-form a{
+  color: rgb(218 159 60);
+  font-weight: 700;
+}
