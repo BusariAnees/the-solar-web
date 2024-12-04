@@ -1,9 +1,20 @@
 const Order = require('../models/order.model');
 const Auth = require('../models/auth');
 
-function getOrders(req, res) {
-    res.render('customer/orders/all-orders');
-}
+
+async function getOrders(req, res,next) {
+  let orders
+    try {
+     orders = await Order.findAllForUser(res.locals.uid);
+      res.render('customer/orders/all-orders', {
+        orders: orders,
+       
+      });
+    } catch (error) {
+      next(error);
+    }
+    console.log(orders);
+  }
 
 
 async function addOrder (req, res, next) {
