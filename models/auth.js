@@ -12,8 +12,7 @@ class Auth {
 
   static async findById(userId) {
     const uid = new mongodb.ObjectId(userId);
-
-    db.getDb().collection("users").findOne({ _id: uid }, { projection: {password: 0 }}); // the 0 will exclude a data from being fetched
+    await db.getDb().collection("users").findOne({ _id: uid }, { projection: {password: 0 }}); // the 0 will exclude a data from being fetched
   }
 
   async fetchEmail() {

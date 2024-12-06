@@ -9,32 +9,34 @@ async function getOrders(req, res,next) {
       res.render('customer/orders/all-orders', {
         orders: orders,
        
+
       });
     } catch (error) {
       next(error);
     }
-    console.log(orders);
+
   }
 
 
 async function addOrder (req, res, next) {
     const cart = res.locals.cart;
     let userDocument
-
     try {
          userDocument = await Auth.findById(res.locals.uid);
+     
     } catch (error) {
         return next(error);
     }
-  
-
-    const order = new Order(cart, userDocument);
+          
+    const order = new Order(cart, userDocument,);
+    console.log(userDocument)
     try {
        await  order.save();
     } catch (error) {
         next(error);
         return;
     }
+
 
    req.session.cart = null;
 
