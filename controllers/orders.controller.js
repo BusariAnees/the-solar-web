@@ -30,9 +30,9 @@ async function addOrder (req, res, next) {
     } catch (error) {
         return next(error);
     }
-          
+    console.log(cart)
     const order = new Order(cart, userDocument,);
-    console.log(userDocument)
+  
     try {
        await  order.save();
     } catch (error) {
@@ -46,7 +46,8 @@ async function addOrder (req, res, next) {
 
 
   const session = await stripe.checkout.sessions.create({
-    line_items: cart.item.map(function(item) {
+    payment_method_types: ['card'],
+    line_items: cart.items.map(function(item) {
       return  {
         // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
         price_data: {
@@ -54,7 +55,7 @@ async function addOrder (req, res, next) {
           product_data: {
             name: item.product.title,
           },
-          unity_amount: +item.product.price.toFixed(2) * 100 // its in pennies thats why it is multiplied by 100
+          unit_amount: +item.product.price.toFixed(2) * 100 // its in pennies thats why it is multiplied by 100
         },
         quantity: item.quantity,
       }
