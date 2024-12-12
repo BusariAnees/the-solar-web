@@ -1,10 +1,21 @@
-
+<% if (!locals.isAdmin) { %>
     <div class="header-pack">
       <a href="/products">Shop</a>
       <a href="">Energy</a>
       <a href="">About us</a>
       <a href="/orders">Orders</a>
     </div>
+    <% } %>
+    <% if (locals.isAdmin) { %>
+      <div class="header-pack">
+        <a href="/products">Shop</a>
+     <a href="/admin/products"> Manage Products</a>
+     <a href="/admin/orders"> Manage Orders</a>
+      </div>
+      
+  
+    <% } %>
+  
 
     <% if(!locals.isAuth) {%>
     <nav id="user-img"><a href="/login"> <img src="\images\user-regular.svg" alt="user" />  </a>
@@ -44,10 +55,8 @@
       <% } %>
       </nav>
  
-      <% if (locals.isAdmin) { %>
-       <li><a href="/admin/products"> Manage Products</a></li>
-       <li><a href="/admin/orders"> Manage Orders</a></li>
-    
-      <% } %>
+     
+
+      
  
  

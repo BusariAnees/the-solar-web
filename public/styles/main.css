@@ -16,6 +16,7 @@
     padding: 2rem;
     font-size: 0.85rem;
     font-family: "Courier Prime", monospace;
+    transition: 0.3s ease-in;
 }
 
 /* .main-paragraph {

@@ -1,9 +1,11 @@
 <%- include('../../shared/includes/head', { pageTitle: 'All products'}) %>
+<link rel="stylesheet" href="/styles/products.css">
 <script src="/script/product-management.js" defer></script>
 <head>
     <body>
+        <%- include('../../shared/includes/header') %>
         <main>
-            <h1 style="color: wheat;" >Product Administration</h1>
+            <h1 class="product-admin-title" style="color: wheat;" >Product <span>Administration</span> </h1>
            
             <section>
         <h2>Manage Products</h2>
@@ -11,10 +13,10 @@
             <a href="/admin/products/new" class="btn"> Add Products</a>
         </p>
             </section>
-            <section>
-                <ul>
+            <section id="products-section">
+                <ul class="products-ul">
                     <% for(const product of products ) {%>
-                    <li>
+                    <li class="products-li">
                         <%- include('../../shared/includes/product-item', {product: product})  %>
                     </li>
                     <% } %>

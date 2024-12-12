@@ -1,10 +1,10 @@
 const express = require('express');
-
+const Product = require('../models/product-model');
 
 
 const router  = express.Router();
 
-router.get('/', function(req, res) {
+router.get('/', async function(req, res) {
     res.render('customer/product/solar-main-page');
 });
 

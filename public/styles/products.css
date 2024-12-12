@@ -1,0 +1,43 @@
+body {
+    background: rgb(237, 232, 226);
+}
+
+
+.products-ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 8rem;
+    height: 30rem;
+    background: rgb(228, 223, 216);
+}
+
+.products-li {
+    box-shadow: 2px 1px 5px black;
+    height: 15rem;
+    width: 15rem;
+    border: 1px solid #00000030;
+    border-radius: 10px;
+}
+
+.product-item{
+    height: 18rem;
+}
+.product-item img{
+    height: 10rem;
+    width:10rem;
+}
+
+.products-edit {
+    margin-top: 3rem;
+}
+
+.product-admin-title {
+    color: rgb(218 159 60) !important;
+}
+.product-admin-title span {
+    color: black;
+}
+
+.products-title {
+    color: rgb(218 159 60);
+}
