@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 3rem 8rem;
-    height: 30rem;
+    height: 40rem;
     background: rgb(228, 223, 216);
 }
 
@@ -34,10 +34,20 @@ body {
 .product-admin-title {
     color: rgb(218 159 60) !important;
 }
-.product-admin-title span {
+
+.btn {
+    color: black;
+    /* background: transparent; */
+    border: 1px solid #00000073;
+    border-radius: 5px;
+    padding: 6px;
+ box-shadow: 2px 2px 3px #00000063;
+}
+.products-span {
     color: black;
 }
 
 .products-title {
     color: rgb(218 159 60);
 }
+

@@ -12,4 +12,5 @@ const upload = multer({
 
 const configuredMulterMiddleware = upload.single('image');   /*with the name image in admin new-product ejs */
 
+
 module.exports = configuredMulterMiddleware;

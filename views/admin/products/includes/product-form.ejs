@@ -15,6 +15,16 @@
         accept="image/png, image/jpg"
         <% if(imageRequired) { %> required  <% } %>
       />
+      <div id="image-upload-control">
+      </p>
+      <label for="descriptionImage">Description Image</label>
+    <input
+      type="file"
+      id="descriptionImage"
+      name="descriptionImage"
+      accept="image/png, image/jpg"
+      <% if(imageRequired) { %> required  <% } %>
+    />
 
       <img src="" alt="Slected Image">
       <p>
@@ -44,7 +54,7 @@
 </p>
 <p>
     <label for="description">description</label>
-    <textarea id="description" name="description"value="<%= product.description %>"rows="7"required>
+    <textarea type="text" id="description" name="description" value="<%= product.description %>"rows="7"required>
     </textarea>
 </p>
 

@@ -4,8 +4,8 @@
         <h2 class="products-title"><%= product.title %> </h2>
         <div class="products-edit">
             <% if (locals.isAdmin) { %> 
-            <a href="/admin/products/<%= product.id %>">View & Edit</a>
-            <button data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+            <a class="btn" href="/admin/products/<%= product.id %>">View & Edit</a>
+            <button  class="btn" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
 
             <% } else { %>
                 <a  class="btn btn-alt" href="/products/<%= product.id %>">

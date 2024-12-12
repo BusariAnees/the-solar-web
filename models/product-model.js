@@ -8,6 +8,7 @@ class Product {
         this.price = +productData.price;
         this.description = productData.description;
         this.image = productData.image; // the image name
+        // this.descriptionImage = productData.descriptionImage
         this.updateImageData() //a custom path that you will use to request your path in your code
         if(productData._id) {
             this.id = productData._id.toString();
@@ -33,7 +34,7 @@ static async findById(productId){
 }
 
    static async findAll() {
-   const products = await  db.getDb().collection('products').find().toArray();
+   const products = await  db.getDb().collection('products').find({}).toArray();
 
    return products.map(function(productDoc) {
     return new Product(productDoc);
@@ -43,6 +44,8 @@ static async findById(productId){
    updateImageData(){
     this.imagePath = `product-data/images/${this.image}`;
         this.imageUrl = `/products/assets/images/${this.image}`;  
+        // this.imageDescriptionPath = `product-data/images/${this.descriptionImage}`;
+        // this.imageDescriptionUrl = `/products/assets/descriptionImage/${this.descriptionImage}`;  
    }
 
 
@@ -62,10 +65,7 @@ static async findById(productId){
     });
   }
 
-  updateImageData() {
-    this.imagePath = `product-data/images/${this.image}`;
-    this.imageUrl = `/products/assets/images/${this.image}`;
-  }
+
 
 
 async save() {
@@ -75,6 +75,7 @@ async save() {
         price: this.price,
         description: this.description,
         image: this.image,
+        descriptionImage: this.descriptionImage ,
     };
 
     if(this.id) {
