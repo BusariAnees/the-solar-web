@@ -1,19 +1,30 @@
+
 <article class="cart-item">
     <div class="cart-item-info">
-        <h2><%= item.product.title %></h2>
-        <p>Energy</p>
- <p>$<span class="cart-item-price"><%= item.totalPrice.toFixed(2) %></span> <span class="cart-product-price">($<%= item.product.price.toFixed(2) %>)</span></p>
-    </div>
+      <div>
+        <h2 ><%= item.product.title %></h2>
+        <p class="cart-title">Built for Energy</p>
+        <form class="cart-item-management" data-productid="<%= item.product.id %>" data-csrf="<%= locals.csrfToken %>">
+          <label class="cart-title" for="dropdown">Quantity:</label>
+          <select id="dropdown" name="quantity">
+            <% for (let i = 1; i <= 10; i++) { %>
+              <option value="<%= i %>" <%= i === item.quantity ? 'selected' : '' %>><%= i %></option>
+            <% } %>
+          </select>
+          <span>
+            <button class="btn btn-alt" type="submit">Update</button>
+          </span>    
+      </div>
+       
+      <div>
+        <p>$<span class="cart-item-price"><%= item.totalPrice.toFixed(2) %></span> <span class="cart-product-price">($<%= item.product.price.toFixed(2) %>)</span></p>
+      </div>
+      </div>
 
-    <form class="cart-item-management" data-productid="<%= item.product.id %>" data-csrf="<%= locals.csrfToken %>">
-        <label for="dropdown">Quantity:</label>
-        <select id="dropdown" name="quantity">
-          <% for (let i = 1; i <= 10; i++) { %>
-            <option value="<%= i %>" <%= i === item.quantity ? 'selected' : '' %>><%= i %></option>
-          <% } %>
-        </select>
+
+  
       
         <!-- Update Button -->
-        <button class="btn btn-alt" type="submit">Update</button>
+       
   </form>
 </article>

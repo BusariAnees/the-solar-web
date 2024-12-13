@@ -1,10 +1,11 @@
 <%- include('../../shared/includes/head', { pageTitle: 'Your Cart'}) %>
+<link rel="stylesheet" href="../../../styles/cart.css">
 <script src="/script/cart-item-management.js" defer></script>
 </head>
 
 <body>
     <%-include('../../shared/includes/header') %>
-    <main>
+    <main class="cart-checkout">
         <h1>Cart</h1>
         <ul id="cart-items">
           <% for (const cartItem of locals.cart.items) { %>
@@ -14,16 +15,29 @@
           <% } %>
         </ul>
         <div id="cart-total">
-          <p>Total: $<span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
-    
-          <% if (locals.isAuth && locals.cart.totalQuantity > 0) { %>
-            <form action="/orders" method="POST">
-              <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-            <button class="btn"> Buy Products</button>
-            </form>
-          <% } else { %>
-            <p id="cart-total-fallback">Log in and add item to the cart to  proceed and purchase the items.</p>
-          <% } %>
+          <p class="order-summary">Order Summary</p>
+          <div class="checkout-div"> 
+            <p> Shipping</p>
+            <span>Free</span>
+          </div>
+         <div class="checkout-div">
+          <p>Sales Tax</p>
+          <span>Calculated at checkout</span>
+         </div>
+         <div class="checkout-div">
+          <p class="order-subtotal">Subtotal</p>
+          <span id="cart-total-price">$<%= locals.cart.totalPrice.toFixed(2) %></span>
+         </div>
+         <% if (locals.isAuth && locals.cart.totalQuantity > 0) { %>
+          <form action="/orders" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+          <button class="checkout-btn"> Checkout</button>
+          </form>
+        <% } else { %>
+          <p id="cart-total-fallback">Log in and add item to the cart to  proceed and purchase the items.</p>
+        <% } %>
         </div>
+      
+       
       </main>
     <%-include('../../shared/includes/footer') %>
