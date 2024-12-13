@@ -16,14 +16,60 @@
             </div>
             <div class="details-seconddiv">
                 <img class="products-details-img" src="<%= product.imageUrl  %>" alt="<%= product.title %>">
-                <!-- <img src="<%= product.imageUrl %>" alt=""> -->
+
+                <% if ( product.title  == "Solar Roof"){ %>
+                    <div id="product-info">
+                        <h1><%= product.title %> | The Future of Roofing — Starting at <span class="products-price"><%= product.price %></span>$</h1>
+                        <div class="product-info-points">
+                            <span> 
+                                Durable
+                            </span>
+                            <span>
+                                Sustainable
+                            </span>
+                        </div>
+                        <h3><%= product.summary %></h3>
+                        <h4><%= product.description %></h4>
+                        
+                        <button id="cartQuantity"  data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>" > Add to Cart</button>
+                    </div>
+               <% } %>
+               <% if ( product.title  == "Powerwall"){ %>
                 <div id="product-info">
-                    <h1><%= product.title %> | The Future of Roofing — <span class="products-price"><%= product.price %></span>$</h1>
+                    <h1><%= product.title %> | Home Energy Storage — Starting at <span class="products-price"><%= product.price %></span>$</h1>
+                    <div class="product-info-points">
+                        <span> 
+                            Efficient
+                        </span>
+                        <span>
+                            Reliable 
+                        </span>
+                    </div>
                     <h3><%= product.summary %></h3>
                     <h4><%= product.description %></h4>
                     
                     <button id="cartQuantity"  data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>" > Add to Cart</button>
                 </div>
+           <% } %>
+
+           <% if ( product.title  == "Megapack"){ %>
+            <div id="product-info">
+                <h1><%= product.title %> | Large-Scale Energy Storage — Custom Pricing </h1>
+                <div class="product-info-points">
+                    <span> 
+                        Powerful
+                    </span>
+                    <span>
+                        Scalable
+                    </span>
+                </div>
+                <h3><%= product.summary %></h3>
+                <h4><%= product.description %></h4>
+                
+                <button id="cartQuantity"  data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>" > Add to Cart</button>
+            </div>
+       <% } %>
+               
             </div>
           
         </section>

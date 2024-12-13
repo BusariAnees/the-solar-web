@@ -11,7 +11,7 @@ async function updateCartItem(event) {
 
   const productId = form.dataset.productid;
   const csrfToken = form.dataset.csrf;
-  const quantity = form.firstElementChild.value;
+  const quantity = form.querySelector('select[name= "quantity"]').value;
 
   let response;
   try {
@@ -50,8 +50,8 @@ async function updateCartItem(event) {
 
   cartTotalPriceElement.textContent =
     responseData.updatedCartData.newTotalPrice.toFixed(2);
-  for (const cartBadgeElement of cartBadgeElements) {
-    cartBadge.textContent = responseData.updatedCartData.newTotalQuantity;
+  for (const cartBadgeElement of cartBadge) {
+    cartBadgeElement.textContent = responseData.updatedCartData.newTotalQuantity;
   }
 }
 
