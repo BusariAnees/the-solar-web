@@ -51,3 +51,65 @@ body {
     color: rgb(218 159 60);
 }
 
+.main-section {
+    display: flex;
+}
+
+.details-firstdiv {
+    width: 50%;
+}
+
+.details-firstdiv img{
+    background-image: url(/images/solar.jpg);
+    background-size: cover;
+    color: black;
+    width: 100%;
+    height: 50rem;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.details-seconddiv {
+    width: 50%;
+}
+
+.details-seconddiv {
+    padding: 0 7rem;
+    width: 50%;
+}
+
+.products-details-img {
+    width: 100%;
+    height: 35%;
+    box-shadow: 2px 1px 5px black;
+    border: 1px solid #00000030;
+    border-radius: 10px;
+}
+
+#cartQuantity {
+    width: 100%;
+    height: 3rem;
+    color: black;
+    background-color: #e5a434;
+    border: 1px solid #0000002e;
+    border-radius: 6px;
+}
+
+#product-info h1{
+    font-weight: 400;
+}
+
+.products-price {
+        font-weight: 300;
+        color: #e3a129
+}
+
+#product-info h3{
+    font-weight: 400;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #dd9e2a;
+}
+
+#product-info h4{
+    font-weight: 200;
+}

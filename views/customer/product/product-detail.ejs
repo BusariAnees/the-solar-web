@@ -1,23 +1,32 @@
 <%- include('../../shared/includes/head', { pageTitle: product.title}) %>
 
-
+<link rel="stylesheet" href="/styles/products.css">
 <script src="/script/cart-management.js" defer></script>
 </head>
-<%-include('../../shared/includes/header') %>
-<body>
-    <main id="product-details">
-       <header>
-        <img src="<%= product.imageUrl  %>" alt="<%= product.title %>">
-        <!-- <img src="<%= product.imageUrl %>" alt=""> -->
-        <div id="product-info">
-            <h1><%= product.title %></h1>
-            <h3><%= product.summary %></h3>
-            <h4><%= product.description %></h4>
-            <p><%= product.price %></p>
-            <button id="cartQuantity"  data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>" > Add to Cart</button>
-        </div>
-       </header>
 
-       <p> <%= product.description %></p>
+<body>
+    <main  id="product-details">
+       <header>
+        <%-include('../../shared/includes/header') %>
+       </header>
+       <main>
+        <section class="main-section">
+            <div class="details-firstdiv">
+                <img src="/images/solar.jpg" alt="solar panels">
+            </div>
+            <div class="details-seconddiv">
+                <img class="products-details-img" src="<%= product.imageUrl  %>" alt="<%= product.title %>">
+                <!-- <img src="<%= product.imageUrl %>" alt=""> -->
+                <div id="product-info">
+                    <h1><%= product.title %> | The Future of Roofing — <span class="products-price"><%= product.price %></span>$</h1>
+                    <h3><%= product.summary %></h3>
+                    <h4><%= product.description %></h4>
+                    
+                    <button id="cartQuantity"  data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>" > Add to Cart</button>
+                </div>
+            </div>
+          
+        </section>
+       </main>
     </main>
     <%-include('../../shared/includes/footer') %>

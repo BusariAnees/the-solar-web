@@ -10,7 +10,11 @@ const upload = multer({
     })
 });
 
-const configuredMulterMiddleware = upload.single('image');   /*with the name image in admin new-product ejs */
+// Middleware to handle multiple fields
+const configuredMulterMiddleware = upload.fields([
+  { name: 'image', maxCount: 1 }, // Single image for 'profileImage'
+  { name: 'descriptionImage', maxCount: 1 },   // Single image for 'coverImage'
+]);
 
 
 module.exports = configuredMulterMiddleware;
