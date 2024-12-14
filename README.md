@@ -2,7 +2,12 @@ Online Shop Website
 
 This is a fully functional online shop website built with the MERN stack technologies and other modern tools for a secure, user-friendly e-commerce experience. The project includes features like user authentication, product management, secure payments with Stripe, and image management with Multer.
 
-![Homepage of website](./assets/)
+#screenshots
+
+![Homepage of website](./main.jpg),
+![Homepage of website](./auth.jpg),
+![Homepage of website](./profile.jpg),
+
 
 
 Features
