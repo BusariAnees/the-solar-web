@@ -7,7 +7,7 @@
         <form class="cart-item-management" data-productid="<%= item.product.id %>" data-csrf="<%= locals.csrfToken %>">
           <label class="cart-title" for="dropdown">Quantity:</label>
           <select id="dropdown" name="quantity">
-            <% for (let i = 1; i <= 10; i++) { %>
+            <% for (let i = 0; i <= 10; i++) { %>
               <option value="<%= i %>" <%= i === item.quantity ? 'selected' : '' %>><%= i %></option>
             <% } %>
           </select>

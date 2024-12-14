@@ -10,11 +10,7 @@ const upload = multer({
     })
 });
 
-// Middleware to handle multiple fields
-const configuredMulterMiddleware = upload.fields([
-  { name: 'image', maxCount: 1 }, // Single image for 'profileImage'
-  { name: 'descriptionImage', maxCount: 1 },   // Single image for 'coverImage'
-]);
+const configuredMulterMiddleware = upload.single('image');
 
 
 module.exports = configuredMulterMiddleware;
