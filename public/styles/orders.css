@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(237, 232, 226);
+}
+
+.order-item{
+    width: 30rem;
+    margin: 3rem auto;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #0000005e;
+    box-shadow: 2px 1px 3px black;
+}
+
+
+.badges {
+    border-radius: 7px;
+    background-color: rgb(218 159 60);
+    border: transparent;
+    color: white;
+    padding: 5px;
+}
+
+.btn-alt {
+    border: none;
+    border-bottom: 1px solid orange;
+    padding-bottom: 3px;
+    background: transparent;
+}
+form{
+    margin-top: 8px;
+}
+
+.order-actions select{
+    border: none;
+    background: transparent;
+}

@@ -50,7 +50,7 @@ html {
 }
 
 body {
-    background-color: white;
+    background-color: rgb(237, 232, 226);
     /* color: var(--color-gray-200); */
     color: rgb(9, 8, 8);
     margin: 0;

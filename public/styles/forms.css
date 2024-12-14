@@ -1,7 +1,63 @@
+body {
+    background-color: rgb(237, 232, 226);
+}
+.form-h1{
+    margin-top: 0;
+    font-weight: 300;
+}
 #image-upload-control img {
     display: none;
     width: 4rem;
     height: 4rem;
     object-fit: cover;
     border-radius: 5px;
+}
+
+form {
+    text-align: start;
+    margin: 3rem auto;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #0000005e;
+    box-shadow: 2px 1px 3px black;
+    width: 40%;
+    height: 37rem;
+}
+form label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+form input {
+    padding-left: 8px;
+    background: transparent;
+    width: 100%;
+    border: 1px solid orange;
+    border-radius: 4px;
+    height: 2rem;
+    padding-left: 9px;
+}
+
+
+form textarea{
+    white-space: pre-wrap;
+    background: transparent;
+    height: 10rem;
+    width: 100%;
+    border: 1px solid orange;
+}
+
+#image {
+    border: none;
+}
+
+
+form button {
+    margin-right: 1rem;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    background: orange;
+    width: 4rem;
+    color: white;
 }

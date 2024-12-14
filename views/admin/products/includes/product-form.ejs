@@ -1,24 +1,10 @@
 <form action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
       
     <p>
-      <label for="">Title</label>
+      <label for="title">Title</label>
       <input type="text" id="title" name="title"  value="<%= product.title %>" required />
     </p>
-    <p>
-        <div id="image-upload-control">
-        </p>
-        <label for="image">Image</label>
-      <input
-        type="file"
-        id="image"
-        name="image"
-        accept="image/png, image/jpg"
-        <% if(imageRequired) { %> required  <% } %>
-      />
-      <img src="" alt="Slected Image">
-     
-        </div>
-      </p>
+
   
       <p>
     <label for="summary">Summary</label>
@@ -44,12 +30,27 @@
   />
 </p>
 <p>
+  <div id="image-upload-control">
+  </p>
+  <label for="image">Image</label>
+<input
+  type="file"
+  id="image"
+  name="image"
+  accept="image/png, image/jpg"
+  <% if(imageRequired) { %> required  <% } %>
+/>
+<img src="" alt="Slected Image">
+
+  </div>
+</p>
+<p>
     <label for="description">description</label>
     <textarea type="text" id="description" name="description" value="<%= product.description %>"rows="40"required>
     </textarea>
 </p>
 
-<p>
+<p class="form-paragraph">
     <button type="reset">Reset</button>
     <button >save</button>
 </p>

@@ -1,9 +1,11 @@
 <%- include('../../shared/includes/head', { pageTitle: 'new products'}) %>
-
+<link rel="stylesheet" href="/styles/forms.css" />
 <head>
   <body>
     <main>
-      <h1>Add new Product</h1>
+      <%- include('../../shared/includes/header') %>
+      <div ></div>
+      <h1 class="form-h1">Add new Product</h1>
       
       <%- include('includes/product-form', {submitPath: '/admin/products', product: {
         title: '',
@@ -12,6 +14,7 @@
         description: '',
       },
       imageRequired: true})  %>
+          </div>
     </main>
     <%-include('../../shared/includes/footer') %>
   </body>

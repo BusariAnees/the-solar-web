@@ -40,10 +40,10 @@ async function updateCartItem(event) {
   const responseData = await response.json();
 
   if (responseData.updatedCartData.updatedItemPrice === 0) {
-    form.parentElement.parentElement.remove();
+    form.querySelector('.cart-item').remove();
   } else {
     const cartItemTotalPriceElement =
-      form.parentElement.querySelector(".cart-item-price");
+      form.querySelector(".cart-item-price");
     cartItemTotalPriceElement.textContent =
       responseData.updatedCartData.updatedItemPrice.toFixed(2);
   }
